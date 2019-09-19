@@ -5,7 +5,7 @@ Assignment 3 - Persistence: Two-tier Web Application with Flat File Database, Ex
 
 ##  Card Guessing Game
 
-your glitch link e.g. http://a3-charlieroberts.glitch.me
+https://a3-dkaravoussianis-demi-karavoussianis.glitch.me/
 
 For this assignment, I developed a card guessing game.  After logging in, the user is prompted to make a guess regarding the state of the turned over card. Once the user has guessed if the card is black or red, the user can click the card to turn it over.   If the guess is incorrect, the page will automatically allow the user to guess on a new random card. If the guess is correct, another card will appear below the first, and the user can continue. An incorrect guess at any stage brings the user back to the first card.
 
@@ -18,11 +18,11 @@ Finally in the side navigation bar, is a log of all the user's previous moves.  
 For a database, I selected LowDB, becuase of the ability to add and remove posts with ease.
 
 For my 5 middlewares, I used:
-	- Body-Parser
-	- Passport
-	- Multer
-	- Crypto
-	- Morgan 
+* Body-Parser
+* Passport
+* Multer
+* Crypto
+* Morgan 
 Body-Parser was used to parse the body of the HTTP post requests.
 
 Passport was used for the authentication process, although I did was unable to get full functionality, the attempt at using Passport does not cause any errors.
