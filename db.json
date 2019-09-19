@@ -1,0 +1,37 @@
+{
+  "count": 6,
+  "balance": 100,
+  "posts": [
+    {
+      "win": false,
+      "bet": 100,
+      "level": 1
+    },
+    {
+      "win": false,
+      "bet": null,
+      "level": 1
+    },
+    {
+      "win": true,
+      "bet": 100,
+      "level": 1
+    },
+    {
+      "win": true,
+      "bet": 100,
+      "level": 2
+    },
+    {
+      "win": true,
+      "bet": 20,
+      "level": 3
+    },
+    {
+      "win": false,
+      "bet": 20,
+      "level": 4
+    }
+  ],
+  "user": {}
+}
