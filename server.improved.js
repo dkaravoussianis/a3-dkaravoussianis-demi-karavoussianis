@@ -23,7 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 app.use(bodyParser.json());
-//app.set('view engine', 'hbs');  // setting hbs as the view engine
+
 
 
 
@@ -37,9 +37,8 @@ const storage = multer.diskStorage({
     filename: function (req, file, callback) {
 		crypto.pseudoRandomBytes(16, function(err, raw) {
 			if (err) return callback(err);
-			callback(null, file.fieldname + '-' + Date.now() + ".jpg"
+			callback(null, raw.toString('hex') + ".jpg"
 			)
-			//callback(null, raw.toString('hex') + path.extname(file.originalname));
 		});
 	},
 });
@@ -52,29 +51,14 @@ var upload = multer({storage: storage,
 });
 
 
-
-/*
-// setting up errorhandler
-if (process.env.NODE_ENV === 'development') {
-  // only use in development
-  app.use(errorhandler())
-} */
-
-
-
-
-
-
-
-
 //setting up user db
 db.defaults({ posts: [], user: {}, count: 0, balance: 100 })
   .write()
 
 
 //passport stuff
-ADMIN = 'bb';
-ADMIN_PASSWORD = 'c';
+ADMIN = 'username';
+ADMIN_PASSWORD = 'password';
 
 passport.use(new LocalStrategy((username, password, done) => {
 	if (username === ADMIN && password === ADMIN_PASSWORD) {
@@ -119,8 +103,7 @@ app.post('/', function(request, response) {
 
 
 app.post('/submit', (req, res) => {
-//  const actual = req.body
-//	console.log(req.body);
+
 	db.get('posts')
 	.push(req.body)
 	.write()
@@ -156,12 +139,6 @@ app.post ('/allPosts', (req, res) => {
 });
 
 
-/*app.post('/login', (req, res) => {
-//	passport.authenticationMiddleware()
-    console.log("inside login")
-    res.send('You hit the home page without restarting the server automatically\n') */
-	
-
 
 app.post('/clearLog', (req, res) => {
 //	const newState = {}
@@ -191,10 +168,7 @@ app.post( '/login',  passport.authenticate('local', { session: false }), functio
 
 	res.end();
 	});
-	//);
-	//	console.log("Approved");
-	// },
-	//);
+
 
 
 // listen for requests :)

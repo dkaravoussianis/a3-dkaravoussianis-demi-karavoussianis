@@ -9,7 +9,6 @@ for (ind = 0; ind < 4; ind++)
 {
 	do {
 		pos =  Math.floor((Math.random() * deck.length));
-//		console.log(pos);
 	
 	} while (deck[pos].Used == true)
 		
@@ -26,36 +25,13 @@ fetch('/allPosts', {
 			'Content-Type': 'application/json',
 			}
 }).then(res => res.json())
-	.then(data => amountBet = data) /*{
-//		console.log(data.count);
-		
-		if (data.count > 0)
-		{
-			amountBet = data.post[data.count-1]
-			
-		}	
-	}); */
+	.then(data => amountBet = data) 
+
 	
 UpdateLog();
 
 //ChangeBet(amountBet);
 
-/*function FetchPosts()
-{
-	fetch('/allPosts', {
-	method: 'post',
-	headers: {
-			'Content-Type': 'application/json',
-			}
-}).then(res => res.json())
-	.then(function (data) {
-		serverData = data;
-	});
-	
-//	console.log(serverData);
-	return serverData;
-	
-} */
 
 function UpdateLog()
 {
@@ -84,7 +60,6 @@ function UpdateLog()
 	});
 	
 	
-//	console.log(serverData.count);
 	
 }
 
@@ -107,14 +82,12 @@ function OnBet()
 
 
 
-function OnAvitar()
+function OnAvatar()
 {
 	path = document.forms['aviForm'].elements['aviFilePath'].files[0].name;
 	if (path != "")
 	{
 		
-		//json = {path: path}
-		//body = JSON.stringify(json)
 			  
 		console.log("sending")
 		fetch( '/avi', {
@@ -237,28 +210,13 @@ function SendRequest(json, nextLevel)
 
 function FlipCard(cardID, levelIndex)
 {
-	/*	document.getElementById("card1").classList.add('rank-7');
-	document.getElementById("card1").classList.add('spades');
 
-	document.getElementById("card1").classList.remove('back');
-	
-	document.getElementById("span11").classList.add('rank');
-	document.getElementById("span11").innerHTML = "7";
-	
-	document.getElementById("span12").classList.add('suit');
-//	document.getElementById("span12").innerHTML = "&spades"; */
-	
-//	console.log(myCards[0]);
 	c1 = "rank-" + deck[myCards[levelIndex]].Value;
-//	console.log(c1);
 	c2 = "&" + deck[myCards[levelIndex]].Suit;
-//	console.log(c2);
 
 	s1 = "span" + parseInt(levelIndex+1) + "1";
 	s2 = "span" + parseInt(levelIndex+1) + "2";
 	
-//	console.log(s1)
-//	console.log(s2)
 	
 	document.getElementById(cardID).classList.add(c1);
 	document.getElementById(cardID).classList.add(deck[myCards[levelIndex]].Suit);
@@ -269,7 +227,6 @@ function FlipCard(cardID, levelIndex)
 	document.getElementById(s1).innerHTML = deck[myCards[levelIndex]].Value;
 	
 	document.getElementById(s2).classList.add('suit');
-//	document.getElementById("span12").innerHTML = c2; 
 	
 }
 
