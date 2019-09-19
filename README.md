@@ -23,6 +23,8 @@ For my 5 middlewares, I used:
 * Multer
 * Crypto
 * Morgan 
+
+
 Body-Parser was used to parse the body of the HTTP post requests.
 
 Passport was used for the authentication process, although I did was unable to get full functionality, the attempt at using Passport does not cause any errors.
